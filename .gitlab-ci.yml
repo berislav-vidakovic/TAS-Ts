@@ -6,7 +6,7 @@ workflow:
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: always
     - if: '$CI_PIPELINE_SOURCE == "push"'
-      when: manual
+      when: always
 
 # Use Playwright official image with Node + browsers pre-installed
 image: mcr.microsoft.com/playwright:v1.42.1-focal
