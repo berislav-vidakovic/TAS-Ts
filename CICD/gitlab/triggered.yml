@@ -17,4 +17,3 @@ run_tas:
     - npx playwright install
     # Run only games tests via your npm script
     - npm run testGames
-
