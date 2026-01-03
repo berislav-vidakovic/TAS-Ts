@@ -1,0 +1,24 @@
+# Use Playwright official image with Node + browsers pre-installed
+image: mcr.microsoft.com/playwright:v1.42.1-focal
+
+stages:
+  - test
+
+variables:
+  HEADLESS: "true"    # ensure headless browser in CI
+
+# Job to run TAS tests
+run_tas:
+  stage: test
+  script:
+    # Install Node dependencies
+    - npm ci
+    # Ensure browsers are installed (Playwright)
+    - npx playwright install
+    # Run only games tests via your npm script
+    - npm run testGames
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
