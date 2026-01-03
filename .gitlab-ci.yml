@@ -1,7 +1,7 @@
 # Allow downstream / scheduled pipelines
 workflow:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "parent_pipeline"'
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
       when: always
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
       when: always
