@@ -1,3 +1,13 @@
+# Allow downstream / scheduled pipelines
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "parent_pipeline"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: manual
+
 # Use Playwright official image with Node + browsers pre-installed
 image: mcr.microsoft.com/playwright:v1.42.1-focal
 
@@ -17,10 +27,4 @@ run_tas:
     - npx playwright install
     # Run only games tests via your npm script
     - npm run testGames
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "parent_pipeline"'
-      when: always
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: always
-    - if: '$CI_PIPELINE_SOURCE == "push"'
-      when: manual
+  
