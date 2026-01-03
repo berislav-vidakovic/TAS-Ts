@@ -19,7 +19,7 @@ run_tas:
     - npm run testGames
   rules:
     # Run when triggered from another pipeline
-    - if: '$CI_PIPELINE_SOURCE == "web"'
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
       when: always
     # Run on schedule
     - if: '$CI_PIPELINE_SOURCE == "schedule"'
