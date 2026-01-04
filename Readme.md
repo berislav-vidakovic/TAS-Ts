@@ -29,4 +29,8 @@ Add environment variable to gitlab.yml
 Build scheduled Pipeline on GitLab
   - Build - Pipeline schedules - New schedule
 
-  
+
+Allow triggering from another CI pipeline on GitLab
+  - Settings - CI/CD -Variables
+    - Minimum role to use pipeline variables - Developer
+
