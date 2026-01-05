@@ -5,7 +5,7 @@ on:
     branches: 
       - main
   schedule:
-    - cron: '0 14 * * *'  # daily UTC
+    - cron: '2 0 * * *'  # daily UTC - 2AM
 
 jobs:
   run-tas:
